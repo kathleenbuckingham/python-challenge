@@ -3,7 +3,7 @@ import os
 #import os
 import csv
 #Create file variable
-# pyBankCSV = os.path.join(".","pyBank.csv") - this route does not work - use alterative. 
+# pyBankCSV = os.path.join(".","election_data.csv") - this route does not work - use alterative. 
 
 os.chdir("PyPoll")
 
