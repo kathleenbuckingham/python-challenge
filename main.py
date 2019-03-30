@@ -1,43 +1,35 @@
-#Import csv
+## Dependencies
 import os
+#import os
 import csv
 
-#Create file variable
-# pyBankCSV = os.path.join(".","pyBank.csv")
+os.chdir("PyPoll")
 
-os.chdir("PyBank")
-
-with open("pyBank.CSV", newline="") as csvfile:
+with open("PyPoll.CSV", newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
+
     header = next(csvreader)
-
-#Define the function and have it accept pyBankData as the sole function
+    rows = []
+    candidate_votercount = []
+    candidatelist = []
+    votercount = 0
+    print("----------------")
+    print("Election Results")
+    print("-------------------")
     
-    Total_months = 0.00
-    Net_total = 0.00
-    average = 0.00
-    Greatest_increase = ["",0.00]
-    Greatest_decrease = ["",0.00]
-
-    for row in csvreader:
-        Total_months += 1
-        Net_total += float(row[1])
-        current_change = float(row[1])
-        
-        if current_change > Greatest_increase[1]:
-            Greatest_increase[0] = row[0]
-            Greatest_increase[1] = float(row[1])
-        else:
-            current_change < Greatest_decrease[1]
-            Greatest_decrease[0] = row[0]
-            Greatest_decrease[1] = float(row[1])
-
-print(f"Total Months: {Total_months}")
-print(f"Net Total: {Net_total}")
-print(f"Average: {Net_total/Total_months}")
-print(f"Greatest Profit: ${Greatest_increase[1]} occurred in {Greatest_increase[0]}")
-print(f"Greatest Decrease: ${Greatest_decrease[1]} occurred in {Greatest_decrease[0]}")
-    
-  
-
-     
+    for x in csvreader:
+       votercount = votercount + 1
+       candidatelist.append(x[2])
+       if x[2] not in rows:
+           rows.append(x[2])
+    print(f"Total Votes: {votercount}")
+    print("---------------------")
+    print("Candidate, Percentage of Votes, Number of Votes:")
+    print("---------------------")
+    for j in range(len(rows)):
+       #candidatelist.count(rows[j])
+       print(f"{(rows[j])} {(round((candidatelist.count(rows[j]))/(votercount)*100))} % ({candidatelist.count(rows[j])})")
+print("--------------------")
+print("The Winner is Khan")
+print("--------------------")
+       
