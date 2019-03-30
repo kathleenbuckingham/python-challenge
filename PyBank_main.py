@@ -2,12 +2,13 @@
 import os
 import csv
 
+
 #Create file variable
-# pyBankCSV = os.path.join(".","pyBank.csv")
+# pyBankCSV = os.path.join(".","budget_data.csv") - use alternative route
 
 os.chdir("PyBank")
 
-with open("pyBank.CSV", newline="") as csvfile:
+with open("budget_data.CSV", newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     header = next(csvreader)
 
